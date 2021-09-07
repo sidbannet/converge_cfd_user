@@ -1,0 +1,24 @@
+version: 3.0.22
+---
+
+-  region:
+      region_id:          0
+      region_name:        Region 0
+      stream_id:          0
+      solid_flag:         0
+      vel_init:           [0, 0, 0]
+      temp_init:          355
+      pres_init:          134793
+      turbulence_init:
+         approach:        value
+         value:
+            tke:          62.0271
+            eps:          17183.4
+      species_init:
+         ch4:             0.02282932
+         n2:              0.7494775
+         o2:              0.2276932
+      passive_init:
+         hiroy_soot:      0
+         nox:             0
+

@@ -1,0 +1,109 @@
+version: 3.0.22
+---
+
+boundary_conditions:
+   -  boundary:
+         id:              1
+         type:            WALL
+         name:            Piston
+         region:          0
+         motion:          TRANSLATING
+         geometry_motion: MOVING
+         roughness:
+            height:       0
+            constant:     0
+         velocity:
+            type:         Law_of_wall
+            value:        AUTO_GENERATE
+            echo_profile: 0
+            phase_lag_angle: 0
+         pressure:
+            type:         Neumann
+         temperature:
+            type:         Law_of_wall
+            value:        553
+         species:
+            type:         Neumann
+         passive:
+            type:         Neumann
+         turbulence:
+            tke:
+               type:      Neumann
+               value:     0
+            eps:
+               type:      Law_of_wall
+   -  boundary:
+         id:              2
+         type:            PERIODIC
+         name:            Front face
+         region:          0
+         match:
+            boundary_id:  3
+            type:         ROTATIONAL
+            axis:         [0, 0, 1]
+            origin:       [0, 0, 0]
+            angle:        60
+   -  boundary:
+         id:              3
+         type:            PERIODIC
+         name:            Back face
+         region:          0
+         match:
+            boundary_id:  2
+   -  boundary:
+         id:              4
+         type:            WALL
+         name:            Cylinder wall
+         region:          0
+         motion:          STATIONARY
+         geometry_motion: FIXED
+         roughness:
+            height:       0
+            constant:     0
+         velocity:
+            type:         Law_of_wall
+            value:        [0, 0, 0]
+         pressure:
+            type:         Neumann
+         temperature:
+            type:         Law_of_wall
+            value:        433
+         species:
+            type:         Neumann
+         passive:
+            type:         Neumann
+         turbulence:
+            tke:
+               type:      Neumann
+               value:     0
+            eps:
+               type:      Law_of_wall
+   -  boundary:
+         id:              5
+         type:            WALL
+         name:            Cylinder head
+         region:          0
+         motion:          STATIONARY
+         geometry_motion: FIXED
+         roughness:
+            height:       0
+            constant:     0
+         velocity:
+            type:         Law_of_wall
+            value:        [0, 0, 0]
+         pressure:
+            type:         Neumann
+         temperature:
+            type:         Law_of_wall
+            value:        523
+         species:
+            type:         Neumann
+         passive:
+            type:         Neumann
+         turbulence:
+            tke:
+               type:      Neumann
+               value:     0
+            eps:
+               type:      Law_of_wall
+

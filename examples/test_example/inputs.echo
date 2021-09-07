@@ -1,0 +1,125 @@
+version: 3.0.22
+---
+
+surface_filename:         surface.dat
+mechanism_filename:       mech.dat
+thermodynamic_filename:   therm.dat
+simulation_control:
+   crank_flag:            1
+   start_time:            -147
+   end_time:              135
+   restart_flag:          0
+   restart_number:        1
+   map_flag:              OFF
+   check_grid_motion_flag: 0
+   load_cyc:              AUTO
+   imbalance_factor:      125
+   reread_input:          1
+   random_seed:           0
+output_control:
+   log_level:             2
+   twrite_post:           2
+   twrite_transfer:       10
+   twrite_files:          0.1
+   twrite_restart:        5
+   twrite_restart_max_wct: 1
+   custom_time_flag:      0
+   custom_time_unit:      ""
+   custom_time_conv:      0
+   num_restart_files:     5
+   write_map_flag:        0
+   wall_output_flag:      OFF
+   transfer_flag:         0
+   mixing_output_flag:    1
+   species_output_flag:   1
+   region_flow_flag:      0
+   dynamic_flag:          0
+   monitor_points_flag:   0
+   post_slice_output_flag: 0
+   uniformity_index_output_flag: 0
+   smd_pdf_flag:          0
+   walltime_output_flag:  0
+   output_multiplier:     AUTO
+grid_control:
+   base_grid:             [0.0014, 0.0014, 0.0014]
+   grid_scale:            0
+   amr_flag:              1
+   events_flag:           0
+   embedded_flag:         1
+   inlaid_mesh_flag:      0
+   min_vol_ratio:         0.3
+   seal_tol:              0.0005
+   auto_reloft_flag:      0
+temporal_control:
+   time_flag:             1
+   dt_start:              5e-07
+   dt_max:                2.5e-05
+   dt_min:                1e-08
+   dt_fixed:              1e-06
+   mult_dt_spray:         1.5
+   mult_dt_evap:          9900000000
+   mult_dt_chem:          0.5
+   mult_dt_coll_mesh:     1e+28
+   mult_dt_move:          0.5
+   max_cfl_u:             1
+   max_cfl_nu:            5
+   max_cfl_mach:          50
+solver_control:
+   momentum_solver:       1
+   energy_solver:         INTERNAL
+   species_solver:        1
+   turbulence_solver:     1
+   steady_solver:         0
+   monitor_steady_state:  0
+property_control:
+   gas_compressible_flag: 1
+   liquid_compressible_flag: 0
+   lhv_flag:              0
+   tabular_fluid_prop_flag: 0
+   eos_flag:              redlich_kwong
+   individual_properties_flag: 0
+   real_gas_prop_flag:    0
+   max_reduced_pres:      6
+   crit_temp:             133
+   crit_pres:             3770000
+   acentric_factor:       0.035
+   species_diffusion_model: 0
+   prandtl_turb:          0.9
+   schmidt_turb:          0.78
+   min_temp:              10
+   max_temp:              4900
+   max_visc:              10
+   gravity:               [0, 0, 0]
+feature_control:
+   spray_flag:            1
+   surface_chemistry_flag: 0
+   surface_mechanism_filename: surface_mech.dat
+   surface_thermodynamic_filename: surface_therm.dat
+   urea_flag:             0
+   combustion_flag:       1
+   source_flag:           0
+   composite_flag:        0
+   wallvalue_flag:        0
+   udf_flag:              0
+   cht_supercycle_flag:   0
+   vof_flag:              0
+   fixed_flow_flag:       0
+   fsi_flag:              0
+   radiation_flag:        0
+   nucleate_boiling_flag: 0
+   skip_species_flag:     0
+   mrf_flag:              0
+   prox_check_flag:       0
+   cosimulation_flag:     0
+   initial_perturbation_flag: 0
+   motion_sets_flag:      0
+ga_control:
+   ga_flag:               0
+   ga_individual:         0
+   ga_generation:         0
+mpi_control:
+   shared_memory_flag:    1
+accelerator_control:
+   use_gpu_flag:          0
+   enable_pin_mem:        0
+
