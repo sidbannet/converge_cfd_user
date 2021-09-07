@@ -564,29 +564,23 @@ class SimpleCase(Case):
                     {'turbulence': filefmt('turbulence*_region#')},
                     {'passive': filefmt('passive*_region#')},
                     {'dynamic': filefmt('dynamic*_region#')},
+                    {'emissions': filefmt('emissions*_region#')},
+                    {'soot': filefmt('soot_hiroy*_region#')},
+                    {'species': filefmt('species_mass*_region#')},
                 ],
                 'boundary_based': [
-                    {'bound': filefmt('bound#-wall*')},
                 ],
                 'flow_based': [
-                    {'regions_flow': filefmt('regions_flow*')},
-                    {'mass_avg_flow': filefmt('mass_avg_flow*')},
                 ],
                 'monitor_point_based': [
-                    {'mon_pt': filefmt('monitor*_point_#_mass_avg')}
-                ]
+                ],
+                'other_based': [
+                    {'time': filefmt('time*')},
+                    {'memory_usage': filefmt('memory_usage*')},
+                ],
             }
         )
         self.mon_pts = CFDDict(
             {
-                'cyl_center': int(3),
-                'int_pist': int(4),
-                'exh_pist': int(5),
-                'cyl_int_port': int(1),
-                'cyl_exh_port': int(2),
-                'int_man_measured': int(6),
-                'exh_man_measured': int(7),
-                'int_pist_crev': [10, 9, 8, 11],
-                'exh_pist_crev': [12, 13, 14, 15],
             }
         )
