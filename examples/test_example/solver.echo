@@ -1,0 +1,151 @@
+version: 3.0.22
+---
+
+ns_solver_scheme:         PISO
+ns_solver_type:           density_based
+piso:
+   tol_scale:             20
+   piso_tol:              0.001
+   piso_itmin:            2
+   piso_itmax:            9
+   omega_presrat:         0.7
+simple:
+   tol_scale:             20
+   simple_tol:            0.001
+   simple_itmin:          2
+   simple_itmax:          9
+   omega_presrat:         0.7
+   omega_simple:          0.5
+   couple_turb_flag:      0
+steady_state_solver:
+   steady_auto_flag:      0
+   steady_switch_solver_flag: 0
+   steady_tol_update_freq: 10
+   steady_min_num_amr:    10
+   steady_piso_tol_init:  0.01
+   steady_tol_scale_init: 10
+   steady_max_cfl_u_final: 5
+numerical_schemes:
+   flux_scheme:
+      mom:                FLUX_BLENDING
+      global:             FLUX_BLENDING
+      turb:               FLUX_BLENDING
+   fv_upwind_factor:
+      mom:                0.5
+      global:             0.5
+      turb:               1
+   monotone_tolerance:    0.025
+   upwind_all_dir_flag:   0
+   muscl_blend_factor:
+      mom:                1
+      global:             1
+      turb:               1
+   flux_limiter:
+      mom:                step
+      global:             step
+      turb:               step
+   implicit_fraction:     1
+   conserve:              1
+   strict_conserve_level: 2
+   rc_flag:               1
+   omega_turb:            1
+transport:
+   mom:
+      solver_type:        SOR
+      tol:                1e-05
+      itmin:              0
+      itmax:              50
+      omega:              1
+      preconditioner:     None
+   pres:
+      solver_type:        SOR
+      tol:                1e-08
+      itmin:              2
+      itmax:              500
+      omega:              1.1
+      preconditioner:     None
+   density:
+      solver_type:        SOR
+      tol:                0.0001
+      itmin:              0
+      itmax:              2
+      omega:              1
+      preconditioner:     None
+   energy:
+      solver_type:        SOR
+      tol:                0.0001
+      itmin:              0
+      itmax:              2
+      omega:              1
+      preconditioner:     None
+   species:
+      solver_type:        SOR
+      tol:                0.0001
+      itmin:              0
+      itmax:              2
+      omega:              1
+      preconditioner:     None
+   passive:
+      solver_type:        SOR
+      tol:                1e-05
+      itmin:              0
+      itmax:              50
+      omega:              1
+      preconditioner:     None
+   radiation:
+      solver_type:        SOR
+      tol:                1e-08
+      itmin:              0
+      itmax:              2500
+      omega:              1
+      preconditioner:     None
+   wall_dist:
+      solver_type:        CONVERGE_BICGSTAB
+      tol:                0.001
+      itmin:              0
+      itmax:              500
+      omega:              1.1
+      preconditioner:     SOR
+   tke:
+      solver_type:        SOR
+      tol:                0.001
+      itmin:              2
+      itmax:              50
+      omega:              0.7
+      preconditioner:     None
+   eps:
+      solver_type:        SOR
+      tol:                0.001
+      itmin:              2
+      itmax:              50
+      omega:              0.7
+      preconditioner:     None
+   omega:
+      solver_type:        SOR
+      tol:                0.001
+      itmin:              2
+      itmax:              50
+      omega:              0.7
+      preconditioner:     None
+   v2:
+      solver_type:        SOR
+      tol:                0.001
+      itmin:              2
+      itmax:              30
+      omega:              0.7
+      preconditioner:     None
+   f:
+      solver_type:        SOR
+      tol:                0.001
+      itmin:              2
+      itmax:              30
+      omega:              1.1
+      preconditioner:     None
+   zeta:
+      solver_type:        SOR
+      tol:                0.001
+      itmin:              2
+      itmax:              30
+      omega:              0.7
+      preconditioner:     None
+

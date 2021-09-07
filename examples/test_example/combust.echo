@@ -1,0 +1,196 @@
+version: 3.0.22
+---
+
+general_control:
+   region_flag:           0
+   temporal_type:         SEQUENTIAL
+   start_time:            -10
+   end_time:              135
+   temp_cutoff:           600
+   hc_minimum:            1e-08
+emissions_flag:           1
+sage_model:
+   active:                1
+   option:                CONSTANT_VOLUME
+   ode_solver:
+      type:               DENSE
+      analyt_jac:         1
+      rel_tol:            0.0001
+      abs_tol:            1e-14
+      reaction_multiplier: 1
+   solve_temp:            0
+   delta_temp:            2
+   dmr_flag:              0
+   cvode_error_output_flag: 0
+thickened_flame_model:
+   active:                0
+   region_flag:           0
+   start_time:            0
+   thickening_method:
+      option:             0
+      max_thickening_factor: 1
+      num_grid_across_flame: 5
+   thickening_amr_couple:
+      active:             0
+      amr_strength_level: 2
+   flame_sensor_model:
+      option:             2
+      sensor_slope:       5
+      sensor_species:     []
+      ref_reaction_rate:  0.001
+      reaction_sensor_model:
+         gamma:           0.4
+         beta:            5
+         reaction_rate_ratio: 0.5
+      jaravel_sensor_model:
+         ref_psi:         20
+         alpha_hot:       0.005
+         alpha_cold:      0.05
+         time_scale_constant: 20
+   efficiency_factor_model:
+      option:             2
+      constant_efficiency_factor: 1
+      uprime_model:       0
+      uprime_multiplier:  1
+      charlette_model:
+         beta:            0.5
+      colin_model:
+         beta:            0.3
+   wall_treatment_flag:   0
+ceq_model:
+   active:                0
+   subset_species:        []
+   cm2:                   0.1
+adaptive_zone_model:
+   active:                1
+   bin_options:
+      c7h16:              0.001
+      react_ratio:        0.05
+      temp:               5
+   nox_flag:              1
+   stiffness_load_balance_flag: 0
+   output_flag:           0
+   hr_map_flag:           0
+three_points_pdf_model:
+   active:                0
+   fluctuation_variable:  PHI
+   transport_variance_flag: 0
+   variance_cmu:          0.2
+   mixing_relaxation_flag: 1
+   relaxation_constant:   3
+fuel_name:                C7H16
+ctc_model:
+   active:                0
+   init_time:             -999999
+   mult_scale_flag:       1
+   tau_fraction:          0.2
+   cm2:                   0.1
+   denomc:                7680000000
+   temp_cutoff:           1000
+shell_model:
+   active:                0
+   af04:                  150000
+fgm_model:
+   active:                0
+   fgm_table_filename:    ""
+   cfd_c_chi:             2
+ecfm_model:
+   active:                0
+   stretch_alpha:         1.6
+   itnfs_model:           1
+   destruct_beta:         1
+   spark:
+      active:             0
+   auto_ignition:
+      active:             1
+      tki_table_filename: ignition_delay.dat
+   ai_fsd_factor:         0
+   post_ceq_flag:         1
+   reinit_flag:           0
+g_eqn_model:
+   active:                0
+   burned_region:         SAGE
+   on_flame:              SAGE
+   unburned_region:       NONE
+   init_value:            0
+   grad_g_flag:           0
+   temp_cutoff:           3500
+   spark:
+      active:             0
+ecfm3z_model:
+   active:                0
+   mix_betam:             2
+   stretch_alpha:         1.6
+   itnfs_model:           1
+   destruct_beta:         1
+   auto_ignition:
+      active:             1
+      tki_table_filename: ignition_delay.dat
+   ai_fsd_factor:         0
+   post_ceq_flag:         1
+   reinit_flag:           0
+rif_model:
+   active:                0
+   nproc_flamelet:        1
+   init_zmin:             1e-05
+   unburned_temp_offset:  0
+   flamelet_c_chi:        2
+   cfd_c_chi:             2
+   chi_clip:              1000
+   num_flamelets:         1
+   grid_type:             4
+   num_zgrids:            100
+   pdf_flag:              0
+   transport_all_species:
+      active:             0
+      num_transport_species: [O2, N2, CO2, H2O]
+   boundary_condition:
+      rif_bc0:
+         o2:              0
+      rif_bc1:
+         {}
+      bc1_temp:           700
+sl_model:
+   active:                2
+   sl_option:
+      constant_laminar_flamespeed: 0
+      constant_laminar_flame_thickness: 0
+      laminar_flamespeed_correlations:
+         general_control:
+            temp_ref:     298
+            pres_ref:     101325
+            temp_a:       1
+            temp_m:       -0.8
+            pres_a:       1
+            pres_m:       0.22
+            dilution:     0
+         metghalchi:
+            bm:           0.2632
+            b2:           -0.8472
+            equiv_ratio:  1.13
+         gulder:
+            omega:        0.4658
+            eta:          -0.326
+            xi:           4.48
+      tlf_table_filename: ""
+st_model:
+   active:                0
+   st_option:
+      peters_correlation:
+         a4:              0.78
+         b1:              2
+         b3:              1
+         g_prime_cs:      2
+      zimont_correlation:
+         a:               2
+      pitsch_correlation:
+         b1:              2
+         b3:              1
+mix_frac_output:
+   mix_frac:
+      active:             0
+   mix_frac_var:
+      active:             0
+   c_chi:                 2
+borghi_diagram_output_flag: 0
+

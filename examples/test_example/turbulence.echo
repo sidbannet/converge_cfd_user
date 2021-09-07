@@ -1,0 +1,103 @@
+version: 3.0.22
+---
+
+turbulence_model:         RANS_K_EPS_RNG
+rans_models:
+   k_eps_models:
+      keps_cmu:           0.0845
+      keps_rpr_tke:       1.39
+      keps_ceps1:         1.42
+      keps_ceps2:         1.68
+      keps_ceps3:         -1
+      keps_rpr_eps:       1.39
+      keps_rng_beta:      0.012
+      keps_rng_eta0:      4.38
+      keps_rng_gen_b0:    2.0725
+      keps_rng_gen_b1:    -0.3865
+      keps_rng_gen_b2:    0.083
+      v2f_zetaf_models:
+         keps_v2f_cmu:    0.22
+         keps_v2f_c1:     0.4
+         keps_v2f_c2:     0.3
+         keps_v2f_cl:     0.36
+         keps_v2f_ceta:   85
+         keps_zetaf_rpr_zeta: 0.8333
+         keps_zetaf_c2prime: 0.65
+   k_omega_models:
+      komega_cmu:         0.09
+      komega_rpr_tke:     0.85
+      komega_rpr_omega:   0.5
+      komega_alpha:       0.556
+      komega_beta:        0.075
+      komega_clim:        0.875
+      komega_sst_a1:      0.31
+      komega_rpr_tke_outer: 1
+      komega_rpr_omega_outer: 0.856
+      komega_alpha_outer: 0.44
+      komega_beta_outer:  0.0828
+      komega_transition_model: 0
+   reynolds_stress_models:
+      rsm_cmu:            0.0986
+      rsm_diffusion_model: iso
+      rsm_sigma_k:        1
+      rsm_sigma_eps:      1.3
+      rsm_cs:             0.22
+      rsm_cs_eps:         0.18
+      rsm_ceps1:          1.44
+      rsm_ceps2:          1.83
+      rsm_ceps3:          -1
+      lrr_model:
+         lrr_c1:          1.8
+         lrr_c2:          0.6
+         lrr_wall_reflection: 1
+         lrr_cw1:         0.5
+         lrr_cw2:         0.3
+         lrr_cw2_c1:      -0.044
+         lrr_cw2_c2:      -0.08
+         lrr_cw2_c3:      0.6
+      ssg_model:
+         ssg_c1:          3.4
+         ssg_c1s:         1.8
+         ssg_c2:          4.2
+         ssg_c3:          0.8
+         ssg_c3s:         1.3
+         ssg_c4:          1.25
+         ssg_c5:          0.4
+   spalart_allmaras_model:
+      sa_cb1:             0.1355
+      sa_cb2:             0.622
+      sa_cw2:             0.3
+      sa_cw3:             2
+      sa_cv1:             7.1
+      sa_cs:              0.3
+      sa_rpr_sigma:       1.5
+des_models:
+   ddes_komegasst_cdes:   0.78
+   ddes_komegasst_cdes_outer: 0.61
+   ddes_komegasst_cd1:    20
+   ddes_komegasst_cd2:    3
+   iddes_komegasst_cw:    0.15
+   iddes_komegasst_cl:    5
+   iddes_komegasst_ct:    1.87
+les_models:
+   les_rpr_tke:           1
+   les_c_tke:             2
+   les_c_tke_visc:        0.05
+   les_c_eps:             1
+   les_wall_model:        1
+wall_modeling:
+   wall_dist_flag:        1
+   near_wall_treatment:   STANDARD
+   heat_model:            0
+   law_kappa:             0.42
+   law_c:                 5.5
+physics_effects:
+   discrete_c_s:          0
+   discrete_c_ps:         0.03
+   buoyancy_flag:         0
+turbulence_statistics:
+   turb_stat_flag:        0
+   turb_stat_start_time:  -999999
+   turb_stat_end_time:    0
+   turb_stat_tol:         0.0001
+

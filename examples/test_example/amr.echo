@@ -1,0 +1,31 @@
+version: 3.0.22
+---
+
+amr_settings:
+   cycle_steady:          100
+   max_cells:             2000000
+   min_cells:             1
+amr_groups:
+   -  amr_group:
+         amr_regions:     0
+         amr_velocity:
+            active:       1
+            embed_scale:  2
+            sgs_embed:    2
+            temporal_type: PERMANENT
+            parcel_embed: 50
+         amr_temperature:
+            active:       1
+            embed_scale:  2
+            sgs_embed:    5
+            temporal_type: CYCLIC
+            period:       720
+            start_time:   -10
+            end_time:     135
+amr_bounds:
+   []
+amr_yplus_restrict:
+   []
+amr_proximity:
+   []
+

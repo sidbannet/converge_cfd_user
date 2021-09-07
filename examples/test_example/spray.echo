@@ -1,0 +1,184 @@
+version: 3.0.22
+---
+
+cone_distribution:        CLUSTER
+penet_control:
+   liquid_frac:           0.97
+   vapor_frac:            0.001
+   vapor_bin_size:        0.001
+wall_control:
+   wall_model:            REBOUND_SLIDE
+   init_wall_film:        0
+   film_control:
+      film_mesh:
+         active:          0
+         embedding_scale: 0
+      rebound:
+         weber_no:        5
+      splash:
+         model:           OROURKE
+         criterion_flag:  0
+         critical_value:  3330
+         fraction:        1
+         tstar_critical:  1.1
+         temp_boil:       USE_RAOULTS_LAW
+         wruck_model_flag: 0
+      strip:
+         active:          0
+         time_const:      12
+         size_const:      0.5
+      separation:
+         const:           3
+collision_control:
+   collision_model:       NTC
+   outcome_model:         POST
+   collision_mesh:
+      active:             0
+      embedding_scale:    2
+drag_control:
+   drag_model:            DYNAMIC
+   cfocbck:               0.08333
+   csubd:                 10
+   csubk:                 8
+turb_dispersion_control:
+   dispersion_model:      OROURKE
+porous_media_interaction_control:
+   porous_trap_parcel_model: OFF
+   porous_break_parcel_radius_ratio: 0.1
+evap_control:
+   drop:
+      drop_evap_model:    FROSSLING
+      evap_source_flag:   0
+      boiling:            0
+      evap_flag_flash_boiling: 0
+      size_flag_flash_boiling: 0
+      evap_scale_factor_flash_boiling: 1
+      size_scale_factor_flash_boiling: 1
+      evap_species:       C7H16
+      d0_diffuse:         4.16e-06
+      n_diffuse:          1.6
+      scaling:
+         heat_trans_coeff: 1
+         mass_trans_coeff: 1
+      drop_temp_discretization:
+         active:          0
+         drop_radius:     1000
+         layers_per_drop: 15
+         recirculation_flag: 0
+   film:
+      active:             1
+      evap_source_flag:   0
+      scaling:
+         heat_trans_coeff: 1
+         mass_trans_coeff: 1
+      film_temp_discretization:
+         active:          0
+         film_height:     1000
+         layers_per_film: 10
+dynamic_spray_cone_angle_flag: 0
+sub_cycle:
+   spray_sub_cycle_dt:    1e+32
+combine_film_parcels:
+   active:                0
+   start_time:            -999999
+   end_time:              -999999
+   max_film_parcels_per_boundary_node: 50
+injectors:
+   -  injector:
+         injector_name:   Injector_0
+         injector_control:
+            azimuth_angle_start: 0
+            azimuth_angle_end: 360
+            spray_bc_model: CONVENTIONAL
+            position:     [0, 0, -0.0032208]
+            angle_xy_inj: 0
+            angle_xz_inj: 0
+            parcel_species:
+               diesel2:   1
+            cone_flag:    1
+            temporal_type: CYCLIC
+            period:       720
+            start_time:   -9
+            duration:     10.5
+            tot_mass:     1.35083e-05
+            temp:         341
+            tke:          3000
+            eps:          300
+            inject_distribution: BLOB
+            q_rr:         3.5
+            swirl_fraction: 0
+            discharge_coeff_flag: 1
+            discharge_coeff_model:
+               cd:        0.7
+               cv:        1
+            rate_shape:   imp_rate_shape1.in
+            vof_oneway_mapping:
+               filename:  vof_spray.dat
+               transformation: NONE
+               temp_map:
+                  active: 0
+                  scale:  1
+                  offset: 0
+               tke_map:
+                  active: 0
+                  scale:  1
+                  offset: 0
+               eps_map:
+                  active: 0
+                  scale:  1
+                  offset: 0
+               mass_per_parcel: 1e-16
+               liq_frac_threshold: 0
+               init_cell_turb: 0
+         breakup_control:
+            breakup_model: MOD-KH-RT
+            kh:
+               vel_const: 0.188
+               new_parcel_flag: 1
+               new_parcel_cutoff: 0.05
+               shed_factor: 1
+               size_const: 0.6
+               time_const: 7
+               no_enlarge_flag: 0
+            khact:
+               nozzle_flow_data: CONVERGE
+               turb_kc:   0.45
+               turb_ke:   0.27
+               turb_s:    0.01
+               c_tcav:    0.1
+            rt:
+               distribution: UNIFORM
+               time_const: 1
+               size_const: 0.1
+               length_const: 99999.9
+            tab:
+               distribution: UNIFORM
+            lisa:
+               distribution: UNIFORM
+               length_const: 12
+               size_const: 0.5
+               injection_pres: 5000000
+         nozzle_control:
+            num_parcels_per_nozzle: 50000
+            coord_sys:    POLAR
+            polar_cpy_num: 0
+         nozzles:
+            -  nozzle:
+                  nozzle_name: Nozzle_0
+                  geometry:
+                     diameter: 0.000259
+                     length: 2e-05
+                     position: [0, 0, 0]
+                     orientation: [0, 0, 0]
+                     radial_dist: 0.00097
+                     axial_dist: 0
+                     theta: 0
+                     angle_xy: 0
+                     angle_xz: 62.5
+                  spray_cone:
+                     inj_radius: 0.0001295
+                     angle: 9
+                     thickness: 9
+                  smd:    0.000259
+                  amp_distort: 0
+

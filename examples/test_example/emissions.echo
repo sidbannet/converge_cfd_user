@@ -1,0 +1,46 @@
+version: 3.0.22
+---
+
+nox_model:
+   nox_thermal:
+      active:             1
+      rate_flag:          0
+      nox_radical_model:  0
+   nox_prompt:
+      active:             0
+      equiv_ratio:        1.2
+   nox_scaling_factor:    1.533
+hiroy_soot_model:
+   active:                1
+   hiroy_asf:             350
+   hiroy_esf:             12500
+   hiroy_diam:            2.5e-06
+   hiroy_oxid_factor:     1
+   hiroy_density:         2
+   hiroy_form_flag:       1
+phenom_soot_model:
+   active:                0
+   phenom_inception_factor: 2000
+   phenom_coagulation_factor: 9
+   phenom_oh_collision_factor: 0.13
+   phenom_no_oxidation_factor: 1.82
+   phenom_surface_growth_value: 90000
+detailed_soot_model:
+   active:                0
+   coupled_solver_flag:   0
+   detailed_soot_condensation_flag: 0
+   detailed_soot_alpha_corrector_flag: 0
+   pm_num_moments:        2
+   pm_surface_growth_factor: 2.25
+   pm_alpha_corrector:    0.3
+   psm_num_sections:      20
+   psm_num_subsections:   5
+   psm_surface_growth_factor1: 2
+   psm_surface_growth_factor2: 2.25
+   psm_alpha_corrector1:  0.95
+   psm_alpha_corrector2:  0.3
+   psm_biggestsoot_diameter: 1e-07
+custom_soot_precursor:
+   active:                0
+   precursor_species:     []
+

@@ -1,0 +1,34 @@
+version: 3.0.22
+---
+
+-  embedding:
+      embed_type:         NOZZLE
+      injector_name:      Injector_0
+      nozzle_name:        Nozzle_0
+      radius_1:           0.001
+      radius_2:           0.003
+      length:             0.01
+      embed_scale:        2
+      temporal_type:      SEQUENTIAL
+      start_time:         -12
+      end_time:           3
+      description:        Embedding 1
+-  embedding:
+      embed_type:         BOUND
+      boundary_id:        1
+      embed_scale:        1
+      num_embed:          1
+      temporal_type:      SEQUENTIAL
+      start_time:         -20
+      end_time:           180
+      description:        Embedding 2
+-  embedding:
+      embed_type:         BOUND
+      boundary_id:        5
+      embed_scale:        1
+      num_embed:          1
+      temporal_type:      SEQUENTIAL
+      start_time:         -20
+      end_time:           180
+      description:        Embedding 3
+

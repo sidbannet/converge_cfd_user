@@ -1,0 +1,16 @@
+version: 3.0.22
+---
+
+bore:                     0.13716
+stroke:                   0.1651
+connecting_rod:           0.263
+crank_offset:             0
+rpm:                      1600
+swirl:                    0.978
+swirl_profile:            3.11
+zhead:                    0
+piston_id:                1
+liner_id:                 4
+head_id:                  5
+crevice_flag:             0
+

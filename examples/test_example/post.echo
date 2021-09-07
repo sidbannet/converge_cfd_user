@@ -1,0 +1,12 @@
+version: 3.0.22
+---
+
+cells:
+   general:               [density, pressure, sie, temperature, velocity]
+   combustion:            [equiv_ratio, lambda, react_ratio]
+   turbulence:            [eps, tke, visc]
+   species_massfrac:      [C2H6, C7H16, CH2O, CH4, CO2, H, H2O, O2, OH]
+   passive:               [HIROY_SOOT, NOX]
+parcels:
+   physical:              [radius, temp, velocity]
+
