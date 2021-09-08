@@ -567,6 +567,7 @@ class SimpleCase(Case):
                     {'emissions': filefmt('emissions*_region#')},
                     {'soot': filefmt('soot_hiroy*_region#')},
                     {'species': filefmt('species_mass*_region#')},
+                    {'mixing': filefmt('mixing*_region#')},
                 ],
                 'boundary_based': [
                 ],
