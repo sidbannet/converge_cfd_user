@@ -4,14 +4,16 @@ Tools for importing CFD results.
 @author: siddhartha.banerjee
 """
 
+from typing import Text
 import numpy as np
 import pandas as pd
 import os
+from pandas.io.parsers import TextFileReader
 from tqdm import tqdm
 from tool.data import MetaDataFrame as CFDDataFrame
 from tool.data import AttrDict as CFDDict
 
-LOADCHAR = '\|/-'
+LOADCHAR = r'\|/-'
 
 
 class FileNameFmt:
@@ -92,12 +94,12 @@ def organize_cfd_results(
     files_append = []
     num_reg = []
     file_category = file_fmt.file_category
-    for r, d, f in os.walk(folder_name):
+    for _, _, f in os.walk(folder_name):
         for file in f:
             if '.out' in file and file_category in file:
                 files.append(file.replace('.out', ''))
     if append_folder_name is not None:
-        for r, d, f in os.walk(append_folder_name):
+        for _, _, f in os.walk(append_folder_name):
             for file in f:
                 if '.out' in file and file_category in file:
                     files_append.append(file.replace('.out', ''))
@@ -252,7 +254,7 @@ def import_cfd(
         cfd_dict = CFDDict({'all': []})
     files = []
     num_reg = []
-    for r, d, f in os.walk(folder_name):
+    for _, _, f in os.walk(folder_name):
         for file in f:
             if '.out' in file and file_category in file:
                 files.append(str.split(file.replace('.out', ''), '_'))
@@ -339,7 +341,7 @@ def __import_data(
     """Give panda data frame for the CFD output file."""
     folder = r'' + folder_name
     cfd_data_file = folder + os.sep + file_name + '.out'
-    raw_data = pd.read_csv(
+    raw_data: TextFileReader = pd.read_csv(
         filepath_or_buffer=cfd_data_file,
         header=header,
         skiprows=skiprows,
@@ -350,7 +352,7 @@ def __import_data(
     nrow = raw_data.values.__len__()
     values = np.empty([nrow, ncol])
     for irow, row in enumerate(raw_data.values):
-        for icol, col in enumerate(columns):
+        for icol, _ in enumerate(columns):
             values[irow][icol] = np.float(
                 (str.split(row[0], ))[icol]
             )
@@ -372,6 +374,7 @@ def __import_cfd_timeseries_result(
     """Give panda data frame for the CFD output file."""
     folder = r'' + folder_name
     cfd_data_file = folder + os.sep + file_name + '.out'
+    raw_data: TextFileReader
     try:
         raw_data = pd.read_csv(
             filepath_or_buffer=cfd_data_file,
