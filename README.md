@@ -5,12 +5,12 @@
 
 ## About author
 
-Dr. Banerjee is currently leading CFD modeling at [Mainspring Energy Inc.](www.mainspringenergy.com) a clean energy startup based in the San Francisco Bay Area.
+Dr. Banerjee is currently leading CFD modeling at [Mainspring Energy Inc.](https://www.mainspringenergy.com) a clean energy startup based in the San Francisco Bay Area.
 
-Dr. Banerjee has 12 years of experience focused in the areas of computational combustion, propulsion, and clean energy technology. After earning a Ph.D. from the [University of Wisconsin - Madison](www.wisc.edu) in 2011, Dr. Banerjee worked in the Corporate R&D division of [Cummins Inc.](www.cummins.com) for several years. In 2016, he received Director's award at [Oak Ridge Leadership Computing Facility](https://www.olcf.ornl.gov/) along with DOE funding to work on novel combustion engine technology. Throughout his career, he collaborated with several National Labs and Convergent Science engineers to bring cutting-edge clean energy technology to market using high-performance computer simulation models. He published over [25 technical papers](https://scholar.google.com/citations?user=eTX1dWAAAAAJ&hl=en), authored several patents, and served in several organizing committees at _ASME's IC Engine Division_ over the years.
+Dr. Banerjee has 12 years of experience focused in the areas of computational combustion, propulsion, and clean energy technology. After earning a Ph.D. from the [University of Wisconsin - Madison](https://www.wisc.edu) in 2011, Dr. Banerjee worked in the Corporate R&D division of [Cummins Inc.](https://www.cummins.com) for several years. In 2016, he received Director's award at [Oak Ridge Leadership Computing Facility](https://www.olcf.ornl.gov/) along with DOE funding to work on novel combustion engine technology. Throughout his career, he collaborated with several National Labs and Convergent Science engineers to bring cutting-edge clean energy technology to market using high-performance computer simulation models. He published over [25 technical papers](https://scholar.google.com/citations?user=eTX1dWAAAAAJ&hl=en), authored several patents, and served in several organizing committees at _ASME's IC Engine Division_ over the years.
 
 ---
-| [Github](https://github.com/sidbannet) | [LinkedIn](https://www.linkedin.com/in/sidban/) | [Email](mailo:sidban@uwalumni.com) |
+| [Github](https://github.com/sidbannet) | [LinkedIn](https://www.linkedin.com/in/sidban/) | [Email](mailto:sidban@uwalumni.com) |
 
 ## Why open-source CONVERGE user community?
 
