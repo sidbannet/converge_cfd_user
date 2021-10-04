@@ -1,6 +1,6 @@
 # Introduction
 ---
-*   Example notebook showing how to analyze and present your [CONVERGE CFD](https://convergecfd.com/) data
+*   An [example notebook](https://github.com/sidbannet/converge_cfd_user/blob/e4d66cc1f92034bcb4413f17f349b7e0ea824d04/An_open_source_technical_computing_platform_to_analyze_CONVERGE_CFD_results.ipynb) showing how to analyze and present your [CONVERGE CFD](https://convergecfd.com/) data
 *   How to combine `markdown` and `code` to write a live presentable report
 
 ## About author
