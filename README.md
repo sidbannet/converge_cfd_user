@@ -14,17 +14,17 @@ Dr. Banerjee has 12 years of experience focused in the areas of computational co
 
 ## Why open-source CONVERGE user community?
 
-* Increasingly *CFD* is used in conjunction with *data-science* to use as powerful predictive tool for analysis-led development and accelerate R&D. Meta-models and optimization methods like **Resopnse Surace**, **Optimization on Manifolds**, **Genetic algorithim** optimization and **Decision Tree / Random Forest** are used by large number of CONVERGE users these days.
-* [Python](https://www.python.org/) is most popular scientific computing language to perform data-science / analysis
+* Increasingly *CFD* is used in conjunction with *data-science* to use as powerful predictive tool for analysis-led development and accelerate R&D. Meta-models and optimization methods like **Response Surface**, **Optimization on Manifolds**, **Genetic algorithim** optimization and **Decision Tree / Random Forest** are used by large number of CONVERGE users these days.
+* [Python](https://www.python.org/) is one of the most popular scientific computing languages to perform data-science / analysis
 * Web-based version control platforms like [github](https://github.com/) provides an oppertunity to collaborate with CONVERGE developers and users in open-source forum and learn from each other and to advance CFD data-analysis further.
 
 ### Few more reasons
 
 * Most of CFD reports are static slides / pages. Using Notebook you can create a CFD result dashboard and integrate it with reports / presentations.
-> Example: [COVID dashboard](https://gist.github.com/sidbannet/5f344203c1811696a0c8c51500323052) (report orginally published in Novmber 2020) using Jupyter Notebook is still up-to-date with a single click.
+> Example: [COVID dashboard](https://gist.github.com/sidbannet/5f344203c1811696a0c8c51500323052) (report orginally published in November 2020) using Jupyter Notebook is still up-to-date with a single click.
 * Code lives with your report.
 > Embedding code in your presentation is powerful. You can **interact** with the report and draw insights faster.
-* Easier to collaborate
+* Easier to collaborate.
 > * **Peers**: You can bring in test data within your CFD analysis easily and compare / validate your model faster and better.
   * **CONVERGE developers**: Easier to share your data and analysis with CONVERGE support
 
@@ -34,9 +34,9 @@ Dr. Banerjee has 12 years of experience focused in the areas of computational co
 
 # Loading CONVERGE results
 
-* Import nessesary packages
-* Instantiate an [example high-performance CFD case](https://convergecfd.com/benefits/high-performance-computing) for post processing
-* Load timeseries data from the example CFD result
+* Import nessesary packages.
+* Instantiate an [example high-performance CFD case](https://convergecfd.com/benefits/high-performance-computing) for post processing.
+* Load time series data from the example CFD result.
 
 ## Code to import packages
 > `from post.process import SimpleCase as CfdCase` will give `CfdCase` class in your analysis
@@ -54,10 +54,14 @@ Dr. Banerjee has 12 years of experience focused in the areas of computational co
 ## Plot pressure trace
 > `(cfd_obj.thermo.all.Pressure * 10).plot(title='Pressure trace')` will give you pressure trace
 
+# Quickstart
+
+If you are a [vscode](https://code.visualstudio.com/) user, this project is pre-configured with full dev environment using docker. Make sure to have [docker](https://docs.docker.com/engine/install/) and [remote-containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed. Open the project and allow it to open inside container when the pop-up shows, once fully loaded, start playing with sample jupyter notebook in root folder.
+
 # Remarks
 
 **FAQs**
-1. How to load data when there are multiple restarts in a perticular project?
+1. How to load data when there are multiple restarts in a particular project?
 > `pandas` append takes care of it. You don't need to do anything special.
 2. Can I add my own methods / functions to do further analysis?
 > Yes, use [python's inheritance](https://www.w3schools.com/python/python_inheritance.asp) to built your own methods / functions.

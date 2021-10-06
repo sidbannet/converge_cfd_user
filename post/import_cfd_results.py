@@ -4,7 +4,6 @@ Tools for importing CFD results.
 @author: siddhartha.banerjee
 """
 
-from typing import Text
 import numpy as np
 import pandas as pd
 import os
@@ -53,7 +52,7 @@ class FileNameFmt:
         """Sub-domain ID number is returned."""
         if self.is_subdomain_file(file_name=file_name):
             iloc = file_name.find(self._file_domain_type) \
-                   + len(self._file_domain_type)
+                + len(self._file_domain_type)
             try:
                 return int(file_name[iloc:].split('_')[0])
             except ValueError:
@@ -119,7 +118,7 @@ def organize_cfd_results(
         iload += int(1)
         if not file_fmt.is_subdomain_file(file_name=file):
             file_name = file
-            print('\b' \
+            print('\b'
                   + LOADCHAR[np.mod(iload, len(LOADCHAR))], end='')
             cfd_data.append(
                 __import_cfd_timeseries_result(
@@ -129,7 +128,7 @@ def organize_cfd_results(
             )
         elif file_fmt.is_subdomain_file(file_name=file):
             file_name = file
-            print('\b' \
+            print('\b'
                   + LOADCHAR[np.mod(iload, len(LOADCHAR))], end='')
             reg_num = int(file_fmt.id_subdomain_file(file_name=file))
             try:
@@ -140,7 +139,7 @@ def organize_cfd_results(
                             folder_name=folder_name,
                             file_name=file_name,
                         )
-                     ],
+                    ],
                     axis=0,
                     sort=False,
                 )
@@ -155,7 +154,7 @@ def organize_cfd_results(
             iload += int(1)
             if not file_fmt.is_subdomain_file(file_name=file):
                 file_name = file
-                print('\b' \
+                print('\b'
                       + LOADCHAR[np.mod(iload, len(LOADCHAR))], end='')
                 cfd_data.append(
                     __import_cfd_timeseries_result(
@@ -165,7 +164,7 @@ def organize_cfd_results(
                 )
             elif file_fmt.is_subdomain_file(file_name=file):
                 file_name = file
-                print('\b' \
+                print('\b'
                       + LOADCHAR[np.mod(iload, len(LOADCHAR))], end='')
                 reg_num = int(file_fmt.id_subdomain_file(file_name=file))
                 try:
@@ -271,7 +270,7 @@ def import_cfd(
         iload += int(1)
         if file.__len__() == 1:
             file_name = file[0]
-            print('\b' \
+            print('\b'
                   + LOADCHAR[np.mod(iload, len(LOADCHAR))], end='')
             cfd_data.append(
                 __import_data(
@@ -279,7 +278,7 @@ def import_cfd(
             )
         elif file.__len__() == 2:
             file_name = file[0] + '_' + file[1]
-            print('\b' \
+            print('\b'
                   + LOADCHAR[np.mod(iload, len(LOADCHAR))], end='')
             reg_num = int(str.replace(file[1], file_type, ''))
             try:
@@ -395,7 +394,7 @@ def __import_cfd_timeseries_result(
     nrow = raw_data.values.__len__()
     values = np.empty([nrow, ncol])
     for irow, row in enumerate(raw_data.values):
-        for icol, col in enumerate(columns):
+        for icol, _ in enumerate(columns):
             try:
                 values[irow][icol] = np.float(
                     (str.split(row[0], ))[icol]
@@ -483,7 +482,7 @@ class ImportCFDResult:
         ]
         t = tqdm(total=len(col_files))
         for file in col_files:
-            file_name = folder_name + os.sep +file
+            file_name = folder_name + os.sep + file
             with open(file_name, "r") as colfile:
                 crank_time = colfile.readline().split()[0]
                 self.data_3d[crank_time] = \
@@ -492,7 +491,7 @@ class ImportCFDResult:
                         header=[0],
                         skiprows=[0],
                         delim_whitespace=True,
-                    )
+                )
                 t.update()
         t.close()
         self._loaded_3d = True
@@ -502,9 +501,9 @@ class ImportCFDResult:
         cyl_axis: str = 'z',
         density: str = 'density',
         volume: str = 'volume',
-        intake_scalar = 'INT',
-        residual_scalar = 'CYL',
-        exhaust_scalar = 'EXH',
+        intake_scalar='INT',
+        residual_scalar='CYL',
+        exhaust_scalar='EXH',
     ) -> None:
         """Get the scavenging front analyzed."""
         assert self._loaded_3d, "3D data not loaded yet."
@@ -515,7 +514,8 @@ class ImportCFDResult:
         }
         for key, value in self.data_3d.items():
             self.processed_scav_3d[key] = value[
-                [cyl_axis, density, volume, intake_scalar, residual_scalar, exhaust_scalar]
+                [cyl_axis, density, volume, intake_scalar,
+                    residual_scalar, exhaust_scalar]
             ].sort_values(
                 by=cyl_axis, ascending=True)
             for k, v in cumulative_sum.items():
@@ -538,7 +538,8 @@ class ImportCFDResult:
     ) -> tuple:
         """Get in-cylinder flow analysis using 3d CFD data."""
         assert self._loaded_3d, "3d data not loaded yet."
-        transform = lambda x, y, u, v: (
+
+        def transform(x, y, u, v): return (
             np.sqrt(x ** 2.0 + y ** 2.0),
             np.arctan2(y, x),
             u * x / np.sqrt(
@@ -555,9 +556,9 @@ class ImportCFDResult:
         t = tqdm(total=self.data_3d.__len__())
         for data3d in self.data_3d.values():
             data3d['r'],\
-            data3d['theta'],\
-            data3d['V_r'],\
-            data3d['V_theta'] = np.vectorize(
+                data3d['theta'],\
+                data3d['V_r'],\
+                data3d['V_theta'] = np.vectorize(
                 transform
             )(
                 x=data3d[cyl_x],
