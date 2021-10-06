@@ -556,9 +556,9 @@ class ImportCFDResult:
         t = tqdm(total=self.data_3d.__len__())
         for data3d in self.data_3d.values():
             data3d['r'],\
-                data3d['theta'],\
-                data3d['V_r'],\
-                data3d['V_theta'] = np.vectorize(
+            data3d['theta'],\
+            data3d['V_r'],\
+            data3d['V_theta'] = np.vectorize(
                 transform
             )(
                 x=data3d[cyl_x],
