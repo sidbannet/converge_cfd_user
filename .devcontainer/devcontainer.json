@@ -10,6 +10,9 @@
 			"VARIANT": "3.9"
 		}
 	},
+	"forwardPorts": [
+		8000
+	],
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 

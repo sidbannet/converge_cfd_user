@@ -3,3 +3,5 @@ pandas
 matplotlib
 tqdm
 ipykernel
+mkdocs-material
+mkdocs-minify-plugin
