@@ -501,9 +501,9 @@ class ImportCFDResult:
         cyl_axis: str = 'z',
         density: str = 'density',
         volume: str = 'volume',
-        intake_scalar='INT',
-        residual_scalar='CYL',
-        exhaust_scalar='EXH',
+        intake_scalar: str = 'INT',
+        residual_scalar: str = 'CYL',
+        exhaust_scalar: str = 'EXH',
     ) -> None:
         """Get the scavenging front analyzed."""
         assert self._loaded_3d, "3D data not loaded yet."
